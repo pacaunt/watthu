@@ -78,3 +78,11 @@
   put(t3)
 })
 
+#pagebreak()
+
+#let t = new(table, columns: 3)
+
+#t.push((arg(<all>): ([A], [B], [C])))
+#t.push((arg(<each>): [A]))
+
+#put(t)

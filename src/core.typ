@@ -112,7 +112,7 @@
     } else if a.index == <all> {
       result.args = (update-or-rewrite(a.value))(result.args)
     } else if a.index == <each> {
-      result.args = result.args.map(update-or-rewrite)
+      result.args = result.args.map(update-or-rewrite(a.value))
     } else {
       panic("Unknown argument editor")
     }
@@ -133,6 +133,7 @@
     if class-of(m) == "modifier" { return m }
     if class-of(m) == function { return modify(m) }
     if class-of(m) == dictionary { return modify(..m) }
+    if class-of(m) == array { return modify(..(arg(<all>): m)) }
     return modify(it => m)
   })
 
@@ -145,7 +146,7 @@
 #let update(
   /// The new value to set
   /// -> function | any
-  func
+  func,
 ) = {
   if class-of(func) != function { func = it => func }
   Updater(func)
