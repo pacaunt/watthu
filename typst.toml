@@ -1,0 +1,21 @@
+[package]
+name = "watthu"
+version = "0.0.1"
+entrypoint = "src/lib.typ"
+authors = ["pacaunt"]
+description = "Package for enable object-like programming"
+keywords = [
+    "programming",
+    "OOP",
+]
+categories = [
+    "scripting",
+    "utility",
+]
+disciplines = [
+    "computer-science",
+    "design",
+    "drawing",
+]
+
+[tool]
